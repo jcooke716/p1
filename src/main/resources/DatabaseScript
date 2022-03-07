@@ -1,0 +1,36 @@
+CREATE DATABASE ExpenseReimbursementSystem;
+
+CREATE TABLE employee_details(empl_id SERIAL PRIMARY KEY,
+                                  emp_password VARCHAR(20) NOT NULL,
+                                  emp_first_name VARCHAR(20) NOT NULL,
+                                  emp_last_name VARCHAR(20) NOT NULL,
+                                  emp_contact BIGINT NOT NULL,
+                                  emp_email VARCHAR(30) NOT NULL,
+                                  emp_address VARCHAR(50) NOT NULL,
+                                  emp_admin SERIAL NOT NULL);
+                                  
+CREATE TABLE admin_details (admin_id SERIAL PRIMARY KEY,                                
+                                  admin_password VARCHAR(20) NOT NULL,
+                                  admin_first_name VARCHAR(20) NOT NULL,
+                                  admin_last_name VARCHAR(20) NOT NULL,
+                                  admin_contact BIGINT NOT NULL,
+                                  admin_email VARCHAR(20) NOT NULL,
+                                  admin_address VARCHAR(50) NOT NULL);
+                                  
+CREATE TABLE reimbursements_final (final_id SERIAL PRIMARY KEY,
+                                  final_request SERIAL NOT NULL,
+                                  final_amount DOUBLE PRECISION NOT NULL,
+                                  final_reason VARCHAR(50) NOT NULL,
+                                  final_response_time TIMESTAMP DEFAULT NOW() NOT NULL,
+                                  final_response SERIAL NOT NULL
+                                  final_status VARCHAR(20) NOT NULL); 
+                                  
+CREATE TABLE reimbursements_pending (pend_id SERIAL PRIMARY KEY,
+                                  pend_request SERIAL NOT NULL,
+                                  pend_amount DOUBLE PRECISION NOT NULL,
+                                  pend_reason VARCHAR(50) NOT NULL,
+                                  pend_request_time TIMESTAMP DEFAULT NOW() NOT NULL,
+                                  pend_response SERIAL NOT NULL,
+                                  pend_status VARCHAR(20) NOT NULL);                            
+                                                                
+                                  
